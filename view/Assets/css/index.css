@@ -1,0 +1,131 @@
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	background-color: #ffffff;
+	height: 100%;
+	margin: 0;
+}
+
+h1{
+	color: #fff;
+}
+
+p, h1, h3{
+	text-align: center;
+}
+
+.about{
+	text-align: justify;
+	padding: 10%;
+	padding-top: 1%;
+	font-size: 18px;
+	position: relative;
+}
+
+@keyframes content {
+	0%{left: -1000px; opacity: 0;}
+	100%{left: 0px; opacity: 1;}
+}
+
+.contentAnimation{
+	animation-name: content;
+	animation-duration: 2.5s;
+	animation-fill-mode: forwards;
+}
+
+#about-title{
+	position: relative;
+}
+
+.titleAnimation{
+	animation-name: title;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes title {
+	0%{top: -100px; opacity: 0;}
+	100%{top: 0px; opacity: 1;}
+}
+
+section{
+	padding-top: 8rem;
+	padding-bottom: 6rem;
+}
+
+.parallax-window {
+	min-height: 800px;
+	background: transparent;
+	padding-top: 300px;
+}
+
+.sectionBackground{
+	/*98c739*/
+	background-color: #6AAF08;
+	color: #fff;
+}
+
+.sectionItem{
+	padding: 15px;
+	padding-bottom: 100px;
+	border: white solid 1px;
+	background-color: #98C73D;
+	color: #000;
+}
+
+.navbar-light .nav-item .nav-link{
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+}
+
+.navbar-light .nav-item .nav-link:hover{
+	color: #2C3590;
+	font-weight: bold;
+}
+
+#footer img{
+	height: 100px;
+	width: 100px;
+}
+
+#footer a{
+	color: white;
+}
+
+#footer a:hover{
+	color: black;
+	text-decoration: none;
+}
+
+#footer{
+	font-family: cursive;
+	text-align: center;
+    padding: 3rem;
+}
+
+#team .card{
+	text-align: center;
+	font-size: 20px;
+}
+
+@keyframes appear {
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+.appearAnimation{
+	animation-name: appear;
+	animation-duration: 3s;
+	animation-fill-mode: forwards;
+}
+
+.rowLight{
+	background-color: #d4fa9e;
+}
+
+.rowGreen{
+	background-color: #fff;
+}
