@@ -1,4 +1,11 @@
 <?php
+session_start();
+$name = 'Login';
+if(isset($_SESSION['username'])){
+    $name = $_SESSION['username'];
+}
+var_dump($name);
+die();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +55,7 @@
                             <a class="nav-link" href="#contact">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/view/login.php">Login</a>
+                            <a class="nav-link" href="/view/login.php"><?php echo $name; ?></a>
                         </li>
                     </ul>
                 </div>

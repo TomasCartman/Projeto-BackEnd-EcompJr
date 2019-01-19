@@ -1,10 +1,19 @@
 <?php
-//session_start();
+session_start();
+$flag = '';
+
 if(isset($_SESSION['auth'])){
 	if($_SESSION['auth'] == true){
-		header("location:../index.php");
+		header("location:../routes/routes.php");
     }
 }
+
+if(isset($_GET['valid'])){
+    if($_GET['valid']=='false'){
+        $flag = "Nome de usuario ou senha incorretos";
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +27,8 @@ if(isset($_SESSION['auth'])){
 	<form action="../routes/routes.php" method="POST">
 		<div class="container">
 			<h1>Login</h1>
+
+			<?php echo $flag; ?>
 			<hr>
 			
 			<label for="uname"><b>Nome de usuario</b></label>
