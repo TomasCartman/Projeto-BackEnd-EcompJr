@@ -17,10 +17,36 @@ class Communication {
 
     function sendMessage(){
     	$conn = Connection::getInstance();
-    	$query = "INSERT INTO messages VALUES (DEFAULT, '$this->name', '$this->email', '$this->subject', '$this->message')";
+    	$query = "INSERT INTO messages VALUES (DEFAULT, '$this->name', '$this->email', '$this->subject', '$this->message', DEFAULT)";
     	$sql = $conn->query($query);
     	$row = $sql->fetch(PDO::FETCH_ASSOC);
     	return $row;
+    }
+
+    function getMessages(){
+    	$conn = Connection::getInstance();
+    	$query = "SELECT * FROM messages WHERE visualized = 0";
+    	$sql = $conn->query($query);
+    	$table = array();
+    	$row = $sql->fetch(PDO::FETCH_ASSOC);
+    	while($row){
+    		array_push($table, $row);
+    		$row = $sql->fetch(PDO::FETCH_ASSOC);
+    	}
+    	return $table;
+    }
+
+    function getAllMessages(){
+    	$conn = Connection::getInstance();
+    	$query = "SELECT * FROM messages";
+    	$sql = $conn->query($query);
+    	$table = array();
+    	$row = $sql->fetch(PDO::FETCH_ASSOC);
+    	while($row){
+    		array_push($table, $row);
+    		$row = $sql->fetch(PDO::FETCH_ASSOC);
+    	}
+    	return $table;
     }
 
 }

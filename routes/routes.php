@@ -13,6 +13,8 @@ if(isset($_POST['loginAttempt'])){
     if($user){
         $_SESSION['auth'] = true;
         $_SESSION['username'] = $user['login_user'];
+        var_dump('haah');
+  //  die();
         if($user['admin'] == '1'){
             header("location:../view/adminMenu.php");
         }else{
@@ -58,9 +60,7 @@ if(isset($_POST['loginAttempt'])){
     $msg = new Communication($name, $email, $subject, $message);
     $sendSuccess = $msg->sendMessage();
     header("location:../index.php?message=true");
-}   
-
-if(isset($_SESSION['auth'])){
+} else if(isset($_SESSION['auth'])){
     unset($_SESSION['auth']);
     session_destroy();
     header("location:../view/login.php");
