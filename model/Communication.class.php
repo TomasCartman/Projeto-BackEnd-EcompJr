@@ -49,6 +49,14 @@ class Communication {
     	return $table;
     }
 
+    function markAsRead($msg_id){
+    	$conn = Connection::getInstance();
+    	$query = "UPDATE messages SET visualized = '1' WHERE Id = '$msg_id'";
+    	$sql = $conn->query($query);
+    	$row = $sql->fetch(PDO::FETCH_ASSOC);
+    	return $row;
+    }
+
 }
 
 ?>

@@ -52,5 +52,13 @@ class Membro {
         return $row;
     }
 
+    function makeAdmin(){
+
+    }
+
+    function removeAdmin(){
+        
+    }
+
 }
 ?>

@@ -1,9 +1,15 @@
 <?php
 session_start();
 $name = 'Login';
+$adm = '';
 if(isset($_SESSION['username'])){
     //$name = $_SESSION['username'];
     $name = 'Sair';
+}
+if(isset($_SESSION['admin'])){
+    if($_SESSION['admin']==1){
+        $adm = 'Menu';
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -55,6 +61,9 @@ if(isset($_SESSION['username'])){
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/view/login.php"><?php echo $name; ?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/view/adminMenu.php"><?php echo $adm; ?></a>
                         </li>
                     </ul>
                 </div>

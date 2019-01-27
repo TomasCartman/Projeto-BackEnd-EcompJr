@@ -1,0 +1,11 @@
+.info{
+	margin-top: 20px;
+    padding: 20px;
+    border-radius: 25px;
+    border: 2px solid #d34706;	
+}
+
+.msg{
+	color: black;
+	font-size: 18px;
+}
