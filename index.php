@@ -2,13 +2,15 @@
 session_start();
 $name = 'Login';
 $adm = '';
+$adm2 = '';
 if(isset($_SESSION['username'])){
     //$name = $_SESSION['username'];
     $name = 'Sair';
 }
 if(isset($_SESSION['admin'])){
     if($_SESSION['admin']==1){
-        $adm = 'Menu';
+        $adm = 'Mensagens';
+        $adm2 = 'Page';
     }
 }
 ?>
@@ -64,6 +66,9 @@ if(isset($_SESSION['admin'])){
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/view/adminMenu.php"><?php echo $adm; ?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/view/adminPage.php"><?php echo $adm2; ?></a>
                         </li>
                     </ul>
                 </div>

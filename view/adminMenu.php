@@ -2,6 +2,10 @@
 require_once("../model/Communication.class.php");
 session_start();
 
+if($_SESSION['admin']==0){
+	header("location:../index.php");
+}
+
 $com = new Communication(null, null, null, null);
 $msgs = $com->getAllMessages();
 if(isset($_GET['unread'])){
@@ -24,6 +28,7 @@ if(isset($_GET['unread'])){
 		<h1>Mensagens</h1>
 		<a href="/view/adminMenu.php" class="btn btn-success">Todas as mensagens</a>
 		<a href="/view/adminMenu.php?unread=true" class="btn btn-success">Apenas não lidas</a>
+		<a href="../index.php" class="btn btn-success">Voltar</a>
 		<?php 
 			for($i = 0; $i < sizeof($msgs); $i++){
 				echo '<div class="info">';

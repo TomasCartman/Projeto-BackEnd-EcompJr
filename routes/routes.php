@@ -64,6 +64,28 @@ if(isset($_POST['loginAttempt'])){
     unset($_POST['msg_id']);
     $comm = new Communication($name, $email, $subject, $message);
     $comm->markAsRead($id);
+} else if(isset($_POST['addAdmin'])){
+    $username = $_POST['add_username'];
+    unset($_POST['addAdmin']);
+    $member = new Membro($username, 'empty');
+    $isUsernameValid = $member->checkusername();
+    if($isUsernameValid){
+        $member->makeAdmin($username);
+        header("location:../view/adminPage.php?admin=true");
+    } else{
+        header("location:../view/adminPage.php?admin=false");
+    }
+} else if(isset($_POST['removeAdmin'])){
+    $username = $_POST['remove_username'];
+    unset($_POST['removeAdmin']);
+    $member = new Membro($username, 'empty');
+    $isUsernameValid = $member->checkusername();
+    if($isUsernameValid){
+        $member->removeAdmin($username);
+        header("location:../view/adminPage.php?adminRemoved=true");
+    } else{
+        header("location:../view/adminPage.php?adminRemoved=false");
+    }
 } else if(isset($_SESSION['auth'])){
     unset($_SESSION['auth']);
     session_destroy();

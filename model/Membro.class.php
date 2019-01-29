@@ -52,12 +52,20 @@ class Membro {
         return $row;
     }
 
-    function makeAdmin(){
-
+    function makeAdmin($username){
+        $conn = Connection::getInstance();
+        $query = "UPDATE login_info SET admin = '1' WHERE login_user = '$username'";
+        $sql = $conn->query($query);
+        $row = $sql->fetch(PDO::FETCH_ASSOC);
+        return $row;
     }
 
-    function removeAdmin(){
-        
+    function removeAdmin($username){
+        $conn = Connection::getInstance();
+        $query = "UPDATE login_info SET admin = '0' WHERE login_user = '$username'";
+        $sql = $conn->query($query);
+        $row = $sql->fetch(PDO::FETCH_ASSOC);
+        return $row;
     }
 
 }
